@@ -1,41 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
-
-.top-menu {
-  position: relative;
-  background: #d1e0ff;
-}
-.menu-main {
-  list-style: none;
-  padding: 0 30px;
+ul {
+  list-style-type: none;
   margin: 0;
-  font-size: 18px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
   text-align: center;
-  position: relative;
-}
-.menu-main:before {left: 15px;}
-.menu-main:after {right: 15px;}
-.menu-main li {
-  display: inline-block;
-  padding: 5px 0;
-}
-.menu-main a {
+  padding: 14px 16px;
   text-decoration: none;
-  display: inline-block;
-  margin: 2px 5px;
-  padding: 6px 15px;
-  font-family: 'PT Sans', sans-serif;
-  font-size: 16px;
-  color: #777777;
-  border-bottom: 1px solid transparent;
-  transition: .3s linear;
 }
-.menu-main .current, .menu-main a:hover {
-  border-radius: 3px;
-  background: #92c6f3;
-  color: #313131;
-  text-shadow: 0 1px 0 #fff;
-  border-color: #c6c6c6;
+
+li a:hover:not(.active) {
+  background-color: #ddd;
 }
-@media (max-width: 500px) {
-  .menu-main li {display: block;}
+
+li a.active {
+  color: white;
+  background-color: #4CAF50;
 }
