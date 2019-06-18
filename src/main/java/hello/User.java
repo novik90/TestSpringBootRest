@@ -2,12 +2,12 @@ package hello;
 
 public class User {
   private String name;
-  private String ogli;
+  private String surname;
   private int age;
 
-  public User(String name, String ogli, int age) {
+  public User(String name, String surname, int age) {
     this.name = name;
-    this.ogli = ogli;
+    this.surname = surname;
     this.age = age;
   }
 
@@ -15,8 +15,8 @@ public class User {
     return name;
   }
 
-  public String getOgli() {
-    return ogli;
+  public String getSurname() {
+    return surname;
   }
 
   public int getAge() {

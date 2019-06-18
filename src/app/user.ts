@@ -1,5 +1,5 @@
 export class User{
   name: string;
-  ogli: string;
+  surname: string;
   age: number;
 }

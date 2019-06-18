@@ -11,6 +11,6 @@ public class UserController {
 
   @PostMapping
   public User user(@RequestBody User user) {
-    return new User(user.getName(), user.getOgli(), user.getAge());
+    return new User(user.getName(), user.getSurname(), user.getAge());
   }
 }
