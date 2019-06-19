@@ -12,12 +12,12 @@ export class GreetingComponent implements OnInit {
   greeting: Greeting = new Greeting(null, null);
 
   constructor(
-    private httpService: HttpService
+    private http: HttpService
   ) {
   }
 
   sendName() {
-    this.httpService.getByUrl(`greeting?name=${this.name}`).subscribe((response: Greeting) => {
+    this.http.getByUrl(`greeting?name=${this.name}`).subscribe((response: Greeting) => {
       this.greeting = response;
     });
   }

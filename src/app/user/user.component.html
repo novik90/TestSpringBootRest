@@ -1,15 +1,23 @@
-<div>
-  <ul>
-    <li>name<input type="text" [(ngModel)]="user.name">
-    </li>
-    <li>final name<input type="text" [(ngModel)]="user.surname">
-    </li>
-    <li>age<input type="number" min="1" max="100" [(ngModel)]="user.age">
-    </li>
-      <button (click)="sendUser(user)">submit</button>
-    <div *ngIf="receivedUser">
-      <span>{{receivedUser.name}} {{receivedUser.surname}}</span><br/>
-      <span>Возраст: {{receivedUser.age}}</span>
-    </div>
-  </ul>
+<h1 class="text-center">User Component</h1>
+
+<div class="card card-body shadow offset-3 col-md-6 mb-3">
+  <div class="mb-3">
+    <label for="firstname">Name: </label>
+    <input class="form-control" [(ngModel)]="user.name" id="firstname" type="text">
+  </div>
+  <div class="mb-3">
+    <label for="lastname">Last name: </label>
+    <input class="form-control" [(ngModel)]="user.surname" id="lastname" type="text">
+  </div>
+  <div class="mb-3">
+    <label for="age">Age: </label>
+    <input class="form-control" [(ngModel)]="user.age" id="age" type="text">
+  </div>
+  <div class="mb-3" *ngIf="receivedUser">
+    <h4 class="text-uppercase text-primary">result</h4>
+    <p>ФИО: {{receivedUser.name}} {{receivedUser.surname}}</p>
+    <p>Возраст: {{receivedUser.age}}</p>
+  </div>
+  <button class="btn btn-outline-primary" (click)="sendUser(user)">submit</button>
 </div>
+

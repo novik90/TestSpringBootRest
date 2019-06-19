@@ -1,9 +1,21 @@
-<div>
-  <label>
-    name:
-    <input type="text" [(ngModel)]="name" />
-  </label>
-  <button (click)="sendName()">send</button>
-  <p>{{greeting.id}}</p>
-  <p>{{greeting.content}}</p>
+<h1 class="text-center">Greeting</h1>
+
+<div class="card card-body offset-3 shadow col-md-6 inline">
+  <div class="mb-3">
+    <label for="name">Введите данные: </label>
+    <input class="form-control" id="name" type="text" [(ngModel)]="name"/>
+  </div>
+  <div class="mb-3">
+    <div *ngIf="greeting.id" class="mb-3">
+      <dl class="row">
+        <dt class="col-sm-4">Идентификатор:</dt>
+        <dd class="col-sm-8">{{greeting.id}}</dd>
+
+        <dt class="col-sm-4">Содержимое:</dt>
+        <dd class="col-sm-8">{{greeting.content}}</dd>
+      </dl>
+    </div>
+  </div>
+  <button class="btn btn-outline-primary  " (click)="sendName()">Отправить</button>
+  <br>
 </div>
