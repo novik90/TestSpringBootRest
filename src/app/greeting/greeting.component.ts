@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpService} from "../http-service.service";
 import {Greeting} from "../greeting";
 
@@ -8,21 +8,22 @@ import {Greeting} from "../greeting";
   styleUrls: ['./greeting.component.css']
 })
 export class GreetingComponent implements OnInit {
-  name: string;
-  greeting: Greeting = new Greeting(null, null);
+  selectedGreeting: Greeting;
+  arrGreeting: Greeting[];
 
   constructor(
     private http: HttpService
   ) {
   }
 
-  sendName() {
-    this.http.getByUrl(`greeting?name=${this.name}`).subscribe((response: Greeting) => {
-      this.greeting = response;
-    });
+  onSelect(greeting: Greeting): void {
+    console.log(greeting);
+    this.selectedGreeting = greeting;
   }
 
   ngOnInit(): void {
+    this.http.getByUrl(`greeting`).subscribe((response: Greeting[]) => {
+      this.arrGreeting = response;
+    })
   }
-
 }

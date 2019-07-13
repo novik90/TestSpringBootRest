@@ -9,8 +9,8 @@ import {User} from "./user";
 })
 export class AppComponent implements OnInit{
   title = 'App';
-  greeting: Greeting = new Greeting(null, null);
-  user: User = new User();
+  greeting: Greeting = new Greeting(null, null, null);
+  user: User = new User(null, null);
 
   constructor() {
   }

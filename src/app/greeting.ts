@@ -1,7 +1,8 @@
 export class Greeting {
   constructor(
     public id: number,
-    public content: string
+    public name: string,
+    public lastname: string
   )
   {
   }
