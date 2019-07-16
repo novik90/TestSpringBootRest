@@ -1,17 +1,23 @@
 package hello.api;
 
-import hello.User;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import hello.entity.User;
+import hello.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/userDetail")
+@RequestMapping("/users")
 public class UserController {
 
-  @PostMapping
-  public User user(@RequestBody User user) {
-    return new User(user.getName(), user.getSurname(), user.getAge());
+  @Autowired
+  private UserService userService;
+
+  @GetMapping
+  public List<User> getAllUsers() {
+    return userService.getUserList();
   }
 }

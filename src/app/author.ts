@@ -1,7 +1,7 @@
-export class Greeting {
+export class Author {
   constructor(
     public id: number,
-    public name: string,
+    public firstName: string,
     public lastName: string
   )
   {

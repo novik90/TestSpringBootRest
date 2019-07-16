@@ -8,10 +8,7 @@ import {User} from "../user";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user = new User('Ivan',28, 'Novikov');
-  receivedUser: User;
-  submitted = false;
-  status = ['Defined', 'Active', 'Lock'];
+  allUser: User[];
 
   constructor(
     private http: HttpService
@@ -19,20 +16,8 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.http.getByUrl(`users`).subscribe( (response: User[]) => {
+      this.allUser = response;
+    })
   }
-
-  sendUser(user: User) {
-    this.http.post('userDetail', user).subscribe((user: User) => this.receivedUser = user);
-  }
-
-  newuser() {
-    this.receivedUser = new User('Ivan', 83);
-  }
-
-  onSubmit() {
-    this.submitted = true;
-  }
-
-  get diagnostic() { return JSON.stringify(this.user); }
-
 }

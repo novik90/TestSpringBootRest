@@ -2,8 +2,13 @@
   <h1 class="display-4">Main Page</h1>
   <p class="lead">Web app for test your skill.</p>
 </div>
-<div class="mb-3" *ngFor="let news of allNews">
-  <h3>{{news.title}}</h3>
-  <p>{{news.description}}</p>
-  <span class="float-right">{{news.author}} | {{news.date | date:'yyyy-MM-dd'}}</span>
-</div>
+<ul class="list-unstyled">
+  <li *ngFor="let news of allNews">
+    <h3>{{news.title}}</h3>
+    <p>{{news.description}}</p>
+    <p>Author: <span class="text-info">{{news.author.firstName}} {{news.author.lastName}}</span></p>
+  </li>
+</ul>
+<pre>
+{{allNews | json}}
+</pre>
