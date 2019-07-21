@@ -1,36 +1,19 @@
-<h1 class="text-center">Greeting</h1>
-
-<div class="card card-body offset-3 shadow col-md-6">
-
-  <div class="mb-3">
-    <ul class="list-unstyled">
-      <li *ngFor="let greeting of arrGreeting"
-          [class.selected]="greeting === selectedGreeting"
-          (click)="onSelect(greeting)">
-        <span>{{greeting.id}} </span>
-        <span>{{greeting.name}} </span>
-        <span>{{greeting.lastName}} </span>
-      </li>
-    </ul>
-  </div>
-
-  <div *ngIf="selectedGreeting" class="mb-3">
-
-    <h3><span class="text-primary">{{selectedGreeting.name | uppercase}}</span> Details</h3>
-    <div><span>ID: </span>{{selectedGreeting.id}}</div>
-    <ul class="list-unstyled">
-      <li>
-        <label>Name:
-          <input [(ngModel)]="selectedGreeting.name" placeholder="name"/>
-        </label>
-      </li>
-      <li>
-        <label>LastName:
-          <span>{{selectedGreeting.lastName}}</span>
-        </label>
-      </li>
-    </ul>
-
-  </div>
-
+<div class="jumbotron px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4 text-center">Greeting</h1>
+  <p class="lead"></p>
 </div>
+
+<form [formGroup]="greetingForm">
+  <div class="form-group row col">
+    <label class="col-form-label">Name</label>
+    <input class="form-control" formControlName="name">
+  </div>
+  <div class="form-group row col">
+    <label class="col-form-label">Lastname</label>
+    <input class="form-control" formControlName="lastName">
+  </div>
+  <button class="col-auto btn btn-primary" (click)="onClick()">Add greeting</button>
+</form>
+<pre>
+  {{arrGreeting | json}}
+</pre>

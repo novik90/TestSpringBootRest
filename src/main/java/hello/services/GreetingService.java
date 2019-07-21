@@ -16,12 +16,12 @@ public class GreetingService {
     return greetingRepository.findAll();
   }
 
-  public Greeting getGreetingById(Long greetingId) {
-    return greetingRepository.findById(greetingId).orElse(null);
+  public List<Greeting> getGreetingsByName(String name) {
+    return greetingRepository.findAllByNameEquals(name);
   }
 
-  public List<Greeting> getAllByName(String name) {
-    return greetingRepository.findAllByName(name);
+  public void saveGreeting(Greeting greeting) {
+    greetingRepository.save(greeting);
   }
 
 }

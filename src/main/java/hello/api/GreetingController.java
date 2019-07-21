@@ -3,7 +3,6 @@ package hello.api;
 import hello.entity.Greeting;
 import hello.services.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,14 +13,14 @@ public class GreetingController {
   @Autowired
   private GreetingService greetingService;
 
-  @GetMapping(params = {"id"})
-  @ResponseStatus(HttpStatus.OK)
-  public Greeting getGreetingById(@RequestParam("id") Long greetingId) {
-    return greetingService.getGreetingById(greetingId);
-  }
-
   @GetMapping
   public List<Greeting> getAllGreetings() {
     return greetingService.getGreetingList();
+  }
+
+  @PostMapping
+  public List<Greeting> addGreeting(@RequestBody Greeting greeting) {
+    greetingService.saveGreeting(greeting);
+    return greetingService.getGreetingsByName(greeting.getName());
   }
 }

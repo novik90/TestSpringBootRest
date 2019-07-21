@@ -6,17 +6,19 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "address_id")
-  private Address address;
-
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "id")
+  @Column(name = "user_id")
   private long id;
 
   @Column(name = "username")
   private String username;
+
+  @Column(name = "address_id")
+  private long addressId;
+
+  @OneToOne(mappedBy = "user")
+  private News news;
 
   public long getId() {
     return id;
@@ -34,11 +36,11 @@ public class User {
     this.username = username;
   }
 
-  public Address getAddress() {
-    return address;
+  public long getAddressId() {
+    return addressId;
   }
 
-  public void setAddress(Address address) {
-    this.address = address;
+  public void setAddressId(long addressId) {
+    this.addressId = addressId;
   }
 }

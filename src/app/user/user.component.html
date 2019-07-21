@@ -1,4 +1,10 @@
-<h1 class="text-center">User Component</h1>
-  <form #userForm="ngForm" class="card card-body shadow offset-3 col-md-6 mb-3">
-    <pre>{{allUser | json}}</pre>
+<div class="jumbotron px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4 text-center">User Component</h1>
+</div>
+<div class="container">
+  <form>
+    <ul class="list-unstyled">
+      <li *ngFor="let user of allUser; let i = index">{{i+1}}: {{user.username}}</li>
+    </ul>
   </form>
+</div>

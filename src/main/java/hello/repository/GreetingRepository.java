@@ -8,5 +8,5 @@ import java.util.List;
 public interface GreetingRepository extends CrudRepository<Greeting, Long> {
   List<Greeting> findAll();
 
-  List<Greeting> findAllByName(String name);
+  List<Greeting> findAllByNameEquals(String name);
 }

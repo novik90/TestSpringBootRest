@@ -1,14 +1,13 @@
-<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<div class="jumbotron px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Main Page</h1>
   <p class="lead">Web app for test your skill.</p>
 </div>
-<ul class="list-unstyled">
-  <li *ngFor="let news of allNews">
-    <h3>{{news.title}}</h3>
-    <p>{{news.description}}</p>
-    <p>Author: <span class="text-info">{{news.author.firstName}} {{news.author.lastName}}</span></p>
-  </li>
-</ul>
-<pre>
-{{allNews | json}}
-</pre>
+<div class="container">
+  <ul class="list-unstyled">
+    <li *ngFor="let news of allNews">
+      <h3>{{news.title}}</h3>
+      <p>{{news.description}}</p>
+      <p>Author: <span class="text-info">{{news.user.username}}</span></p>
+    </li>
+  </ul>
+</div>

@@ -1,11 +1,11 @@
-import {Author} from "./author";
+import {User} from "./user";
 
 export class News {
   constructor(
     public id: number,
     public title: string,
     public description: string,
-    public author: Author,
+    public user: User,
     public date: Date
   )
   {

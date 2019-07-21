@@ -7,9 +7,9 @@ import java.util.Date;
 @Table(name = "global_news")
 public class News {
 
-
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "news_id")
   private long id;
 
   @Column(name = "title_news")
@@ -28,7 +28,7 @@ public class News {
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "author_news")
-  private Author author;
+  private User user;
 
   public long getId() {
     return id;
@@ -66,11 +66,11 @@ public class News {
     this.date = date;
   }
 
-  public Author getAuthor() {
-    return author;
+  public User getUser() {
+    return user;
   }
 
-  public void setAuthor(Author author) {
-    this.author = author;
+  public void setUser(User user) {
+    this.user = user;
   }
 }

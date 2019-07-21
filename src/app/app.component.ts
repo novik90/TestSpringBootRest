@@ -8,8 +8,8 @@ import {User} from "./user";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'App';
-  greeting: Greeting = new Greeting(null, null, null);
+  title = 'Test App';
+  greeting: Greeting = new Greeting(null, null);
   user: User = new User(null, null);
 
   constructor() {

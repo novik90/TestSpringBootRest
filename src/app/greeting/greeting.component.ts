@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../http-service.service";
 import {Greeting} from "../greeting";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-greeting',
@@ -8,22 +9,29 @@ import {Greeting} from "../greeting";
   styleUrls: ['./greeting.component.css']
 })
 export class GreetingComponent implements OnInit {
-  selectedGreeting: Greeting;
   arrGreeting: Greeting[];
+
+  greetingForm = new FormGroup({
+    name: new FormControl(''),
+    lastName: new FormControl('')
+  });
 
   constructor(
     private http: HttpService
   ) {
   }
 
-  onSelect(greeting: Greeting): void {
-    console.log(greeting);
-    this.selectedGreeting = greeting;
-  }
-
   ngOnInit(): void {
     this.http.getByUrl(`greeting`).subscribe((response: Greeting[]) => {
       this.arrGreeting = response;
-    })
+    });
+  }
+
+  onClick() {
+    this.http
+      .postGreeting(`greeting`, this.greetingForm.value)
+      .subscribe((response: Greeting[]) => {
+        this.arrGreeting = response;
+      });
   }
 }

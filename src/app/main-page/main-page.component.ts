@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../http-service.service";
 import {News} from "../news";
-import {Author} from "../author";
 
 @Component({
   selector: 'app-main-page',
@@ -10,7 +9,6 @@ import {Author} from "../author";
 })
 export class MainPageComponent implements OnInit {
   allNews: News[];
-  author: Author;
 
   constructor(
     private http: HttpService

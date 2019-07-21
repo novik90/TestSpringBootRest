@@ -1,6 +1,12 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {User} from "./user";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Greeting} from "./greeting";
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +19,15 @@ export class HttpService {
   ) {
   }
 
-  getByUrl(ulr: string) {
-    return this.httpClient.get(this.baseUrl + ulr);
+  getByUrl(url: string) {
+    return this.httpClient.get(this.baseUrl + url);
   }
 
-  post(ulr: string, user: User) {
+  postGreeting(url: string, greeting: Greeting) {
     const body = {
-      name: user.name,
-      surname: user.surname,
-      age: user.age
+      name: greeting.name,
+      lastName: greeting.lastName
     };
-    return this.httpClient.post(this.baseUrl + ulr, body);
+    return this.httpClient.post(this.baseUrl + url, body);
   }
 }

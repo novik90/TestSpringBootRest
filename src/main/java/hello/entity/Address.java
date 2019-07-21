@@ -6,12 +6,9 @@ import javax.persistence.*;
 @Table(name = "address")
 public class Address {
 
-  @OneToOne(mappedBy = "address")
-  private User user;
-
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "id")
+  @Column(name = "address_id")
   private long id;
 
   @Column(name = "street")
@@ -22,10 +19,6 @@ public class Address {
 
   public long getId() {
     return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
   }
 
   public String getStreet() {

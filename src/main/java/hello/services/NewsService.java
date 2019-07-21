@@ -13,6 +13,6 @@ public class NewsService {
   private NewsRepository newsRepository;
 
   public List<News> getNewsList() {
-    return newsRepository.findAll();
+    return newsRepository.findByOrderByIdDesc();
   }
 }
